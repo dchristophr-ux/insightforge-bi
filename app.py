@@ -369,7 +369,6 @@ except:
             - What risks should we monitor?
             """)
         
-        return
     
     # Process uploaded file
     with st.spinner("📊 Processing your data..."):
