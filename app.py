@@ -295,7 +295,7 @@ def main():
     
     # Sidebar
     with st.sidebar:
-    st.header("⚙️ Configuration")
+        st.header("⚙️ Configuration")
     # API Key from secrets (hardcoded - users don't need to enter)
 try:
     groq_api_key = st.secrets["GROQ_API_KEY"]
