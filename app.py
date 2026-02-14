@@ -319,10 +319,10 @@ except:
         
         # File upload
     st.header("📁 Upload Data")
-        uploaded_file = st.file_uploader(
-            "Choose a file",
-            type=['csv', 'xlsx', 'xls', 'pdf'],
-            help="Upload CSV, Excel, or PDF files"
+    uploaded_file = st.file_uploader(
+    "Choose a file",
+    type=['csv', 'xlsx', 'xls', 'pdf'],
+    help="Upload CSV, Excel, or PDF files"
         )
         
         st.markdown("---")
