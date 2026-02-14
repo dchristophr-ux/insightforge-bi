@@ -294,7 +294,7 @@ def main():
     st.markdown('<p class="sub-header">AI-Powered Business Intelligence with RAG</p>', unsafe_allow_html=True)
     
      # API Key input
-        groq_api_key = st.text_input(
+            groq_api_key = st.text_input(
             "GROQ API Key",
             type="password",
             help="Get your free API key from https://console.groq.com"
