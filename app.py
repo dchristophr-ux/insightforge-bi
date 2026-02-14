@@ -369,7 +369,6 @@ except:
             - What risks should we monitor?
             """)
         
-    
     # Process uploaded file
     with st.spinner("📊 Processing your data..."):
         file_type = uploaded_file.name.split('.')[-1].lower()
