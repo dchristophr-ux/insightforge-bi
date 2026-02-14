@@ -315,7 +315,7 @@ except:
     
     st.success("✅ API key configured")
         
-        st.markdown("---")
+    st.markdown("---")
         
         # File upload
         st.header("📁 Upload Data")
