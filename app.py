@@ -17,7 +17,7 @@ from langchain_groq import ChatGroq
 from langchain_core.messages import HumanMessage, SystemMessage
 from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain_community.vectorstores import FAISS
-from langchain_core.documents import Document
+from langchain.docstore.document import Document
 
 # PDF processing
 import pypdf
@@ -293,8 +293,12 @@ def main():
     st.markdown('<h1 class="main-header">📊 InsightForge</h1>', unsafe_allow_html=True)
     st.markdown('<p class="sub-header">AI-Powered Business Intelligence with RAG</p>', unsafe_allow_html=True)
     
-     # API Key input
-            groq_api_key = st.text_input(
+    # Sidebar
+    with st.sidebar:
+        st.header("⚙️ Configuration")
+        
+        # API Key input
+        groq_api_key = st.text_input(
             "GROQ API Key",
             type="password",
             help="Get your free API key from https://console.groq.com"
@@ -307,21 +311,21 @@ def main():
         
         st.success("✅ API key configured")
         
-    st.markdown("---")
+        st.markdown("---")
         
-    # File upload
-    st.header("📁 Upload Data")
-    uploaded_file = st.file_uploader(
-    "Choose a file",
-    type=['csv', 'xlsx', 'xls', 'pdf'],
-    help="Upload CSV, Excel, or PDF files"
+        # File upload
+        st.header("📁 Upload Data")
+        uploaded_file = st.file_uploader(
+            "Choose a file",
+            type=['csv', 'xlsx', 'xls', 'pdf'],
+            help="Upload CSV, Excel, or PDF files"
         )
         
-    st.markdown("---")
+        st.markdown("---")
         
-    # Info
-    st.header("ℹ️ About")
-    st.info("""
+        # Info
+        st.header("ℹ️ About")
+        st.info("""
         **InsightForge** is an AI-powered BI platform that uses:
         - 🤖 GROQ LLM (FREE & Fast)
         - 🔍 RAG for data-aware insights
@@ -361,6 +365,8 @@ def main():
             - What risks should we monitor?
             """)
         
+        return
+    
     # Process uploaded file
     with st.spinner("📊 Processing your data..."):
         file_type = uploaded_file.name.split('.')[-1].lower()
