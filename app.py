@@ -296,20 +296,24 @@ def main():
     # Sidebar
     with st.sidebar:
         st.header("⚙️ Configuration")
-        
-        # API Key input
-        groq_api_key = st.text_input(
-            "GROQ API Key",
-            type="password",
-            help="Get your free API key from https://console.groq.com"
-        )
-        
-        if not groq_api_key:
-            st.warning("⚠️ Please enter your GROQ API key to continue")
-            st.info("💡 GROQ is 100% FREE! Get your key at https://console.groq.com")
-            st.stop()
-        
-        st.success("✅ API key configured")
+        # API Key from secrets (hardcoded - users don't need to enter)
+try:
+    groq_api_key = st.secrets["GROQ_API_KEY"]
+    st.success("✅ API key configured (using secure secrets)")
+except:
+    # Fallback: allow manual entry if secret not set
+    groq_api_key = st.text_input(
+        "GROQ API Key",
+        type="password",
+        help="Get your free API key from https://console.groq.com"
+    )
+    
+    if not groq_api_key:
+        st.warning("⚠️ Please enter your GROQ API key to continue")
+        st.info("💡 GROQ is 100% FREE! Get your key at https://console.groq.com")
+        st.stop()
+    
+    st.success("✅ API key configured")
         
         st.markdown("---")
         
