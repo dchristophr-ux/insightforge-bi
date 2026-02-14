@@ -295,8 +295,8 @@ def main():
     
     # Sidebar
     with st.sidebar:
-        st.header("⚙️ Configuration")
-        # API Key from secrets (hardcoded - users don't need to enter)
+    st.header("⚙️ Configuration")
+    # API Key from secrets (hardcoded - users don't need to enter)
 try:
     groq_api_key = st.secrets["GROQ_API_KEY"]
     st.success("✅ API key configured (using secure secrets)")
@@ -309,15 +309,15 @@ except:
     )
     
     if not groq_api_key:
-        st.warning("⚠️ Please enter your GROQ API key to continue")
-        st.info("💡 GROQ is 100% FREE! Get your key at https://console.groq.com")
-        st.stop()
+    st.warning("⚠️ Please enter your GROQ API key to continue")
+    st.info("💡 GROQ is 100% FREE! Get your key at https://console.groq.com")
+    st.stop()
     
     st.success("✅ API key configured")
         
     st.markdown("---")
         
-        # File upload
+    # File upload
     st.header("📁 Upload Data")
     uploaded_file = st.file_uploader(
     "Choose a file",
@@ -325,11 +325,11 @@ except:
     help="Upload CSV, Excel, or PDF files"
         )
         
-        st.markdown("---")
+    st.markdown("---")
         
-        # Info
-        st.header("ℹ️ About")
-        st.info("""
+    # Info
+    st.header("ℹ️ About")
+    st.info("""
         **InsightForge** is an AI-powered BI platform that uses:
         - 🤖 GROQ LLM (FREE & Fast)
         - 🔍 RAG for data-aware insights
