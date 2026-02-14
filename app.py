@@ -309,7 +309,7 @@ except:
     )
     
     if not groq_api_key:
-    st.warning("⚠️ Please enter your GROQ API key to continue")
+        st.warning("⚠️ Please enter your GROQ API key to continue")
     st.info("💡 GROQ is 100% FREE! Get your key at https://console.groq.com")
     st.stop()
     
